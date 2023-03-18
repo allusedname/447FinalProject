@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+	<head>
+		<title> CSE455 Final Project Demo </title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+
+	<body style="background-color: rgb(209, 246, 255);">
+		<div id = "Header" class="round-corner">
+			<h1> CSE455 Final Project</h1>
+		</div>
+
+    <div id = "Main">
+      <div style="padding-top: 0px;">
+        <div id = "Left" class = "section round-corner">
+          <h2> Demo Video </h2>
+          <video controls>
+            <source src="project_video.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div id = "Member" class = "section round-corner">
+          <h4>Team Member: Dongfeng Li</h4>
+        </div>
+      </div>
+
+      <div id = "Right">
+        <div id = "Tab" class = "section round-corner">
+          <h3>Problem Setup:</h3>
+          <p> This project adds an attention mechanism and pruning to the YOLOv3 model, using an open-source hand detection dataset <a href="http://www.robots.ox.ac.uk/~vgg/data/hands/">oxford hand</a> for hand detection, and model pruning based on that. 
+          </p>
+        </div>
+        <div id = "Tab" class = "section round-corner">
+          <h3>Data used:</h3>
+          <p> We used pre-trained data of YOLOv3 combined with attention mechanism and pruning with the oxford hand data. 
+            <br />
+            <br />
+            Dataset:
+            <span id="bow"><a href="http://www.robots.ox.ac.uk/~vgg/data/hands/downloads/hand_dataset.tar.gz">Link</a></span>
+          </p>
+        </div>
+        <div id = "Tab" class = "section round-corner">
+          <h3>Techniques:</h3>
+          <p> I trained an object detector with <a href="https://github.com/eriklindernoren/PyTorch-YOLOv3">YOLOv3</a> combined with the attention mechanism and pruning algorithm from the paper <a href="http://openaccess.thecvf.com/content_iccv_2017/html/Liu_Learning_Efficient_Convolutional_ICCV_2017_paper.html">Learning Efficient Convolutional Networks Through Network Slimming</a>. A similar implementation can be found <a href="//github.com/talebolano/yolov3-network-slimming">here</a>.
+            <br />
+            <br />
+            Github repo:
+            <span id="bow"><a href="https://github.com/allusedname/455FinalProject">Link</a></span>
+          </p>
+        </div>
+        <div id = "Tab" class = "section round-corner">
+          <h3>Result & Discussion:</h3>
+          <p>
+            Output image:
+            <span id="bow"><a href="https://github.com/allusedname/455FinalProject/blob/master/imgs.zip">Link</a></span>
+            <br />
+            For this dataset, after channel pruning for YOLOv3, the model's parameter count and model size are reduced by 80%, FLOPs are reduced by 70%, and the forward inference speed can reach 200% of the original, while maintaining a roughly unchanged mAP.
+            <table>
+                <tr>
+                  <td></td>
+                  <td>Number of Parameters</td>
+                  <td>Model Size</td>
+                  <td>Flops</td>
+                  <td>Forward Inference Time (2070 TI)</td>
+                  <td>mAP(mean Average Precision)</td>
+                </tr>
+                <tr>
+                  <td>Baseline (416)</td>
+                  <td>61.5M</td>
+                  <td>246.4MB</td>
+                  <td>32.8B</td>
+                  <td>15.0ms</td>
+                  <td>0.6792</td>
+                </tr>
+                <tr>
+                  <td>Prune (416)</td>
+                  <td>10.9M</td>
+                  <td>43.6MB</td>
+                  <td>9.6B</td>
+                  <td>7.7ms</td>
+                  <td>0.7213</td>
+                </tr>
+                <tr>
+                  <td>Finetune (416)</td>
+                  <td>10.9M</td>
+                  <td>43.6MB</td>
+                  <td>9.6B</td>
+                  <td>7.7ms</td>
+                  <td>0.7250</td>
+                </tr>
+              </table>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+		<div id = "Footer">
+
+		</div>
+
+	</body>
+
+</html>
