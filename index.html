@@ -43,16 +43,20 @@
         <div id = "Tab" class = "section round-corner">
           <h3>Techniques:</h3>
           <p> I trained an object detector with <a href="https://github.com/eriklindernoren/PyTorch-YOLOv3">YOLOv3</a> combined with the attention mechanism and pruning algorithm from the paper <a href="http://openaccess.thecvf.com/content_iccv_2017/html/Liu_Learning_Efficient_Convolutional_ICCV_2017_paper.html">Learning Efficient Convolutional Networks Through Network Slimming</a>. A similar implementation can be found <a href="//github.com/talebolano/yolov3-network-slimming">here</a>.
+            <br />
             The attention modules mainly include: SE, CBAM modules, information reconstruction and SEYoLo model construction for the YOLOv3 model.
             SEnet (Squeeze-and-Excitation Network) takes into account the relationship between feature channels and adds an attention mechanism to the feature channels.
             SEnet automatically learns the importance of each feature channel and uses the obtained importance to enhance the features and suppress unimportant features for the current task.
-
+            <br />
             CBAM (Convolutional Block Attention Module) combines the attention mechanism of both feature channels and feature space dimensions. It automatically learns the importance of each feature channel, 
             similar to SENet. Additionally, it automatically learns the importance of each feature space in a similar way. It then uses the obtained importance to enhance the features and suppress unimportant features for the current task.
             CBAM extracts feature space attention in the following way: after ChannelAttention, the feature map with channel importance selected is sent to the feature space attention module. 
             Similar to the channel attention module, space attention performs max-pooling and average-pooling for each channel, and then concatenates the results. Afterward, 
-            a convolution is used to reduce the feature map to a 1wh1wh1wh spatial weight, which is then point-multiplied with the input feature to implement the spatial attention mechanism.
+            a convolution is used to reduce the feature map to a 1∗w∗h1*w*h1∗w∗h spatial weight, which is then point-multiplied with the input feature to implement the spatial attention mechanism.
             <br />
+            This code is based on the paper <a href="http://openaccess.thecvf.com/content_iccv_2017/html/Liu_Learning_Efficient_Convolutional_ICCV_2017_paper.html">Learning Efficient Convolutional Networks Through Network Slimming</a> 
+            to implement an improved channel pruning algorithm. A similar implementation can be found <a href="https://github.com/talebolano/yolov3-network-slimming"> here</a>. 
+            The original algorithm in the paper is for classification models and is based on pruning using the gamma coefficient of the BN layer.
             <br />
             Github repo:
             <span id="bow"><a href="https://github.com/allusedname/455FinalProject">Link</a></span>

@@ -38,7 +38,7 @@ CBAM (Convolutional Block Attention Module) combines the attention mechanism of 
 similar to SENet. Additionally, it automatically learns the importance of each feature space in a similar way. It then uses the obtained importance to enhance the features and suppress unimportant features for the current task.
 CBAM extracts feature space attention in the following way: after ChannelAttention, the feature map with channel importance selected is sent to the feature space attention module. 
 Similar to the channel attention module, space attention performs max-pooling and average-pooling for each channel, and then concatenates the results. Afterward, 
-a convolution is used to reduce the feature map to a 1wh1wh1wh spatial weight, which is then point-multiplied with the input feature to implement the spatial attention mechanism.
+a convolution is used to reduce the feature map to a 1∗w∗h1*w*h1∗w∗h spatial weight, which is then point-multiplied with the input feature to implement the spatial attention mechanism.
 
 ## Pruning Algorithm Introduction
 This code is based on the paper [Learning Efficient Convolutional Networks Through Network Slimming](http://openaccess.thecvf.com/content_iccv_2017/html/Liu_Learning_Efficient_Convolutional_ICCV_2017_paper.html) 
